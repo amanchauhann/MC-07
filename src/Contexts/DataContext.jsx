@@ -15,13 +15,19 @@ const data_reducer = (state, { type, payload }) => {
                 ...state,
                 selected_continent: payload
             }
+        case ("SELECT_COUNTRY"):
+            return {
+                ...state,
+                selected_country: payload
+            }
     }
 }
 
 export const DataProvider = ({ children }) => {
     const initial_Data = {
         continents: [],
-        selected_continent: ""
+        selected_continent: "",
+        selected_country: ""
     }
 
     const [all_continents, continents_dispatch] = useReducer(data_reducer, initial_Data)
